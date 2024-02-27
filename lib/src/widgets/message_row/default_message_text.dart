@@ -109,6 +109,7 @@ class DefaultMessageText extends StatelessWidget {
                 : defaultParsePatterns,
             text: text,
             style: TextStyle(
+              height: messageOptions.textHeight,
               color: isOwnMessage
                   ? messageOptions.currentUserTextColor(context)
                   : messageOptions.textColor,

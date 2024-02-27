@@ -17,6 +17,7 @@ class MessageOptions {
     Color? currentUserTextColor,
     this.containerColor = const Color(0xFFF5F5F5),
     this.textColor = Colors.black,
+    this.textHeight,
     this.messagePadding = const EdgeInsets.all(11),
     this.maxWidth,
     this.messageDecorationBuilder,
@@ -125,6 +126,9 @@ class MessageOptions {
   ///
   /// Default to: `Colors.black`
   final Color textColor;
+
+  /// Height of the text in chat bubbles
+  final double? textHeight;
 
   /// Color of other users time text in chat bubbles
   ///
