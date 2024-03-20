@@ -12,6 +12,7 @@ class MessageOptions {
     this.onLongPressAvatar,
     this.onLongPressMessage,
     this.onLongPressEndMessage,
+    this.onLongPressStartMessage,
     this.onPressMessage,
     this.onPressMention,
     Color? currentUserContainerColor,
@@ -84,6 +85,9 @@ class MessageOptions {
 
   /// Function to call when on long press end includes pointer details.
   final Function(ChatMessage, LongPressEndDetails)? onLongPressEndMessage;
+
+  /// Function to call when on long press start includes pointer details.
+  final Function(ChatMessage, LongPressStartDetails)? onLongPressStartMessage;
 
   /// Function to call when the user press on a message
   final Function(ChatMessage)? onPressMessage;
