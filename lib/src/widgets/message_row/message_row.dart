@@ -158,9 +158,9 @@ class MessageRow extends StatelessWidget {
                             isOwnMessage: isOwnMessage,
                             messageOptions: messageOptions,
                           ),
-                  // if (messageOptions.bottom != null)
-                  //   messageOptions.bottom!(
-                  //       message, previousMessage, nextMessage),
+                  if (messageOptions.bottom != null)
+                    messageOptions.bottom!(
+                        message, previousMessage, nextMessage),
                 ],
               ),
             ),
