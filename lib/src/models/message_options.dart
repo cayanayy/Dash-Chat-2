@@ -22,6 +22,7 @@ class MessageOptions {
     this.textHeight,
     this.messagePadding = const EdgeInsets.all(11),
     this.maxWidth,
+    this.minWidth,
     this.messageDecorationBuilder,
     this.top,
     this.bottom,
@@ -185,6 +186,11 @@ class MessageOptions {
   ///
   /// Default to: `MediaQuery.of(context).size.width * 0.7`
   final double? maxWidth;
+
+  /// Min message width
+  ///
+  /// Default to: `MediaQuery.of(context).size.width * 0.7`
+  final double Function(ChatMessage)? minWidth;
 
   /// When a message have both an text and a list of media
   /// it will determine which one th show first

@@ -129,17 +129,23 @@ class MessageRow extends StatelessWidget {
                             messageOptions: messageOptions,
                           ),
                   if (message.text.isNotEmpty)
-                    TextContainer(
-                      messageOptions: messageOptions,
-                      message: message,
-                      previousMessage: previousMessage,
-                      nextMessage: nextMessage,
-                      isOwnMessage: isOwnMessage,
-                      isNextSameAuthor: isNextSameAuthor,
-                      isPreviousSameAuthor: isPreviousSameAuthor,
-                      isAfterDateSeparator: isAfterDateSeparator,
-                      isBeforeDateSeparator: isBeforeDateSeparator,
-                      messageTextBuilder: messageOptions.messageTextBuilder,
+                    Column(
+                      mainAxisSize: MainAxisSize.min,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        TextContainer(
+                          messageOptions: messageOptions,
+                          message: message,
+                          previousMessage: previousMessage,
+                          nextMessage: nextMessage,
+                          isOwnMessage: isOwnMessage,
+                          isNextSameAuthor: isNextSameAuthor,
+                          isPreviousSameAuthor: isPreviousSameAuthor,
+                          isAfterDateSeparator: isAfterDateSeparator,
+                          isBeforeDateSeparator: isBeforeDateSeparator,
+                          messageTextBuilder: messageOptions.messageTextBuilder,
+                        ),
+                      ],
                     ),
                   if (message.medias != null &&
                       message.medias!.isNotEmpty &&
@@ -152,9 +158,9 @@ class MessageRow extends StatelessWidget {
                             isOwnMessage: isOwnMessage,
                             messageOptions: messageOptions,
                           ),
-                  if (messageOptions.bottom != null)
-                    messageOptions.bottom!(
-                        message, previousMessage, nextMessage),
+                  // if (messageOptions.bottom != null)
+                  //   messageOptions.bottom!(
+                  //       message, previousMessage, nextMessage),
                 ],
               ),
             ),
