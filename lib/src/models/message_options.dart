@@ -187,9 +187,7 @@ class MessageOptions {
   /// Default to: `MediaQuery.of(context).size.width * 0.7`
   final double? maxWidth;
 
-  /// Min message width
-  ///
-  /// Default to: `MediaQuery.of(context).size.width * 0.7`
+  /// Function to calculate min message width
   final double? Function(ChatMessage)? minWidth;
 
   /// When a message have both an text and a list of media

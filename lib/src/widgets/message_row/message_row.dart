@@ -102,6 +102,7 @@ class MessageRow extends StatelessWidget {
               constraints: BoxConstraints(
                 maxWidth: messageOptions.maxWidth ??
                     MediaQuery.of(context).size.width * 0.7,
+                minWidth: messageOptions.minWidth?.call(message) ?? 0,
               ),
               child: Column(
                 crossAxisAlignment: isOwnMessage
@@ -129,23 +130,17 @@ class MessageRow extends StatelessWidget {
                             messageOptions: messageOptions,
                           ),
                   if (message.text.isNotEmpty)
-                    Column(
-                      mainAxisSize: MainAxisSize.min,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        TextContainer(
-                          messageOptions: messageOptions,
-                          message: message,
-                          previousMessage: previousMessage,
-                          nextMessage: nextMessage,
-                          isOwnMessage: isOwnMessage,
-                          isNextSameAuthor: isNextSameAuthor,
-                          isPreviousSameAuthor: isPreviousSameAuthor,
-                          isAfterDateSeparator: isAfterDateSeparator,
-                          isBeforeDateSeparator: isBeforeDateSeparator,
-                          messageTextBuilder: messageOptions.messageTextBuilder,
-                        ),
-                      ],
+                    TextContainer(
+                      messageOptions: messageOptions,
+                      message: message,
+                      previousMessage: previousMessage,
+                      nextMessage: nextMessage,
+                      isOwnMessage: isOwnMessage,
+                      isNextSameAuthor: isNextSameAuthor,
+                      isPreviousSameAuthor: isPreviousSameAuthor,
+                      isAfterDateSeparator: isAfterDateSeparator,
+                      isBeforeDateSeparator: isBeforeDateSeparator,
+                      messageTextBuilder: messageOptions.messageTextBuilder,
                     ),
                   if (message.medias != null &&
                       message.medias!.isNotEmpty &&
