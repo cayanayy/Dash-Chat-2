@@ -26,6 +26,7 @@ class MessageOptions {
     this.messageDecorationBuilder,
     this.top,
     this.bottom,
+    this.isTextSelectable = false,
     this.messageRowBuilder,
     this.messageTextBuilder,
     this.parsePatterns,
@@ -242,4 +243,9 @@ class MessageOptions {
   ///
   /// Default to: `const EdgeInsets.only(top: 5)`
   final EdgeInsets timePadding;
+
+  /// Enables text to be able to select
+  ///
+  /// Default to: false
+  final bool isTextSelectable;
 }
