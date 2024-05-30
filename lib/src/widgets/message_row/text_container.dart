@@ -51,6 +51,7 @@ class TextContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      width: messageOptions.minWidth?.call(message),
       decoration: messageOptions.messageDecorationBuilder != null
           ? messageOptions.messageDecorationBuilder!(
               message, previousMessage, nextMessage)

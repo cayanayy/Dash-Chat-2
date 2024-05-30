@@ -91,10 +91,40 @@ class DefaultMessageText extends StatelessWidget {
   }
 
   Widget getParsePattern(BuildContext context, String text, bool isMarkdown) {
+    TextStyle ownMessageTextStyle = TextStyle(
+      color: messageOptions._currentUserTextColor,
+      height: messageOptions.textHeight,
+    );
+
+    TextStyle textStyle = TextStyle(
+      color: messageOptions.textColor,
+      height: messageOptions.textHeight,
+    );
+
+    TextStyle baseTextStyle = isOwnMessage ? ownMessageTextStyle : textStyle;
+
     return isMarkdown
         ? MarkdownBody(
             data: text,
-            selectable: true,
+            selectable: messageOptions.isTextSelectable,
+            styleSheet: MarkdownStyleSheet(
+              p: baseTextStyle,
+              h1: baseTextStyle,
+              h2: baseTextStyle,
+              h3: baseTextStyle,
+              h4: baseTextStyle,
+              h5: baseTextStyle,
+              h6: baseTextStyle,
+              em: baseTextStyle,
+              strong: baseTextStyle.copyWith(fontWeight: FontWeight.bold),
+              blockquote: baseTextStyle,
+              checkbox: baseTextStyle,
+              del: baseTextStyle,
+              listBullet: baseTextStyle,
+              tableHead: baseTextStyle,
+              tableBody: baseTextStyle,
+              img: baseTextStyle,
+            ),
             onTapLink: (String value, String? href, String title) {
               if (href != null) {
                 openLink(href);
@@ -109,6 +139,7 @@ class DefaultMessageText extends StatelessWidget {
                 : defaultParsePatterns,
             text: text,
             style: TextStyle(
+              height: messageOptions.textHeight,
               color: isOwnMessage
                   ? messageOptions.currentUserTextColor(context)
                   : messageOptions.textColor,

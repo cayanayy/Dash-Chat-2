@@ -87,6 +87,14 @@ class MessageRow extends StatelessWidget {
             onLongPress: messageOptions.onLongPressMessage != null
                 ? () => messageOptions.onLongPressMessage!(message)
                 : null,
+            onLongPressEnd: messageOptions.onLongPressEndMessage != null
+                ? (LongPressEndDetails details) =>
+                    messageOptions.onLongPressEndMessage!(message, details)
+                : null,
+            onLongPressStart: messageOptions.onLongPressStartMessage != null
+                ? (LongPressStartDetails details) =>
+                    messageOptions.onLongPressStartMessage!(message, details)
+                : null,
             onTap: messageOptions.onPressMessage != null
                 ? () => messageOptions.onPressMessage!(message)
                 : null,

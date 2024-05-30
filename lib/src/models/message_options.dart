@@ -11,17 +11,22 @@ class MessageOptions {
     this.onPressAvatar,
     this.onLongPressAvatar,
     this.onLongPressMessage,
+    this.onLongPressEndMessage,
+    this.onLongPressStartMessage,
     this.onPressMessage,
     this.onPressMention,
     Color? currentUserContainerColor,
     Color? currentUserTextColor,
     this.containerColor = const Color(0xFFF5F5F5),
     this.textColor = Colors.black,
+    this.textHeight,
     this.messagePadding = const EdgeInsets.all(11),
     this.maxWidth,
+    this.minWidth,
     this.messageDecorationBuilder,
     this.top,
     this.bottom,
+    this.isTextSelectable = false,
     this.messageRowBuilder,
     this.messageTextBuilder,
     this.parsePatterns,
@@ -80,6 +85,12 @@ class MessageOptions {
   /// Function to call when the user long press on a message
   final Function(ChatMessage)? onLongPressMessage;
 
+  /// Function to call when on long press end includes pointer details.
+  final Function(ChatMessage, LongPressEndDetails)? onLongPressEndMessage;
+
+  /// Function to call when on long press start includes pointer details.
+  final Function(ChatMessage, LongPressStartDetails)? onLongPressStartMessage;
+
   /// Function to call when the user press on a message
   final Function(ChatMessage)? onPressMessage;
 
@@ -125,6 +136,9 @@ class MessageOptions {
   ///
   /// Default to: `Colors.black`
   final Color textColor;
+
+  /// Height of the text in chat bubbles
+  final double? textHeight;
 
   /// Color of other users time text in chat bubbles
   ///
@@ -173,6 +187,9 @@ class MessageOptions {
   ///
   /// Default to: `MediaQuery.of(context).size.width * 0.7`
   final double? maxWidth;
+
+  /// Function to calculate min message width
+  final double? Function(ChatMessage)? minWidth;
 
   /// When a message have both an text and a list of media
   /// it will determine which one th show first
@@ -226,4 +243,9 @@ class MessageOptions {
   ///
   /// Default to: `const EdgeInsets.only(top: 5)`
   final EdgeInsets timePadding;
+
+  /// Enables text to be able to select
+  ///
+  /// Default to: false
+  final bool isTextSelectable;
 }

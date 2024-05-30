@@ -27,6 +27,7 @@ class InputOptions {
     this.inputToolbarMargin = const EdgeInsets.only(top: 8.0),
     this.cursorStyle = const CursorStyle(),
     this.autocorrect = true,
+    this.verticalToolbarAlignment = CrossAxisAlignment.center,
   });
 
   /// Function to call when a mention is triggered in the input,
@@ -107,4 +108,7 @@ class InputOptions {
 
   /// Whether to enable auto-correction. Defaults to true.
   final bool autocorrect;
+
+  /// Control alignment of items vertically in input toolbar. Default is [CrossAxisAlignment.center].
+  final CrossAxisAlignment verticalToolbarAlignment;
 }
